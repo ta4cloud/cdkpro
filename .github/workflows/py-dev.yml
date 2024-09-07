@@ -18,18 +18,19 @@ jobs:
 
     - name: install web app dependencies
       working-directory: ./web
-      run: sudo npm ci
+      run: npm ci
 
     - name: build web app
       working-directory: ./web
-      run: sudo npm run build
+      run: npm run build
 
     - name: install AWS CDK
       run: sudo npm i -g aws-cdk
 
     - name: install deployment dependencies
       working-directory: ./py-webdepl
-      run: sudo pip3 install -r requirements.txt
+      #run: sudo pip3 install -r requirements.txt
+      run: COPY requirements.txt /tmp/ pip3 install --requirement /tmp/requirements.txt
 
     - name: cdk synth
       working-directory: ./py-webdepl
