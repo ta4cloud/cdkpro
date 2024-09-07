@@ -26,6 +26,9 @@ jobs:
 
     - name: install AWS CDK
       run: sudo npm i -g aws-cdk
+      
+    - name: Print current working directory
+      run: pwd
 
     - name: install deployment dependencies
       working-directory: ./ts-webdepl
